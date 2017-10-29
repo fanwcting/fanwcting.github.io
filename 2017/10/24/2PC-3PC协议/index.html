@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Wcting">
 <meta property="og:description" content="一致性协议在对一致性的研究中，出现了许多的理论，其中比较著名的便是2pc、3pc、paxos以及paxos的相关变种raft、zab等等。 2pc和3pcpc就是 Phase Commit的简写，2pc即two-phase commit，二阶段提交。同理3PC就是3阶段提交。 协调者与参与者  首先由于在分布式系统中，一个事务操作需要跨越多个节点。为了保证事务能够执行，我们需要提出一个叫做“协调者">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/3/39/Three-phase_commit_diagram.png">
-<meta property="og:updated_time" content="2017-10-29T09:45:11.483Z">
+<meta property="og:updated_time" content="2017-10-29T09:48:15.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2PC,3PC协议">
 <meta name="twitter:description" content="一致性协议在对一致性的研究中，出现了许多的理论，其中比较著名的便是2pc、3pc、paxos以及paxos的相关变种raft、zab等等。 2pc和3pcpc就是 Phase Commit的简写，2pc即two-phase commit，二阶段提交。同理3PC就是3阶段提交。 协调者与参与者  首先由于在分布式系统中，一个事务操作需要跨越多个节点。为了保证事务能够执行，我们需要提出一个叫做“协调者">
@@ -341,10 +341,10 @@
 <li>2.1.1 协调者发送commit给所有参与者  </li>
 <li>2.1.2 参与者收到commit后执行事务  </li>
 <li>2.1.3 参与者反馈执行结果  </li>
-<li>2.1.4 协调者收到所有参与者的结果后，如果都是成功，完成事务执行，否则执行2.2，进行事务回滚   <ul>
-<li>2.2 如果有一个参与者返回超时或返回了fin又或者2.1.4中有参与者反馈了失败的执行结果，则回滚事务。  </li>
+<li>2.1.4 协调者收到所有参与者的结果后，如果都是成功，完成事务执行，否则执行2.2，进行事务回滚     </li>
 </ul>
 </li>
+<li>2.2 如果有一个参与者返回超时或返回了fin又或者2.1.4中有参与者反馈了失败的执行结果，则回滚事务。  <ul>
 <li>2.2.1 协调者发送rollback给所有参与者   </li>
 <li>2.2.2 参与者收到rollback后，根据1.2的记录回滚事务    </li>
 <li>2.2.3 参与者反馈执行结果  </li>
@@ -359,7 +359,7 @@
 <li>参与者出错</li>
 <li>协调者出错</li>
 </ol>
-<p>由于该协议就是为了解决参与者出错的问题而设计的，所以情况1不考虑。<br>。</p>
+<p>由于该协议就是为了解决参与者出错的问题而设计的，所以情况1不考虑。</p>
 <ul>
 <li>在阶段一中，如果参与者返回给协调者时，协调者出现异常。这样参与者占用的资源就会无限阻塞下去。</li>
 <li>在阶段二中，可能出现协调者在发送了部分commit的时候突然宕机了。导致了部分参与者收到了commit，部分没有收到。导致数据不一致。</li>
