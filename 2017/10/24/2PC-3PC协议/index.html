@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Wcting">
 <meta property="og:description" content="一致性协议  在对一致性的研究中，出现了许多的理论，其中比较著名的便是2pc、3pc、paxos以及paxos的相关变种raft、zab等等。 2pc和3pc  pc就是 Phase Commit的简写，2pc即two-phase commit，二阶段提交。同理3PC就是3阶段提交。 协调者与参与者首先由于在分布式系统中，一个事务操作需要跨越多个节点。为了保证事务能够执行，我们需要提出一个叫做“协">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/3/39/Three-phase_commit_diagram.png">
-<meta property="og:updated_time" content="2017-10-29T09:29:23.912Z">
+<meta property="og:updated_time" content="2017-10-29T09:32:49.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2PC,3PC协议">
 <meta name="twitter:description" content="一致性协议  在对一致性的研究中，出现了许多的理论，其中比较著名的便是2pc、3pc、paxos以及paxos的相关变种raft、zab等等。 2pc和3pc  pc就是 Phase Commit的简写，2pc即two-phase commit，二阶段提交。同理3PC就是3阶段提交。 协调者与参与者首先由于在分布式系统中，一个事务操作需要跨越多个节点。为了保证事务能够执行，我们需要提出一个叫做“协">
@@ -181,18 +181,13 @@
 协调者负责将事务告知参与者，再根据参与者的反馈，决定事务最终是否执行。根据这个理念，诞生了2PC和3PC协议。
 </code></pre><h3 id="2PC"><a href="#2PC" class="headerlink" title="2PC"></a>2PC</h3><p>2PC分为 “提交事务请求” 和 “执行事务提交” 两个阶段。 </p>
 <ol>
-<li>提交事务请求</li>
-<li><p>执行事务提交 </p>
-</li>
-<li><p>提交事务请求   </p>
-<ul>
+<li>提交事务请求<ul>
 <li>1.1. 协调者向参与者发送事务执行请求，并等待其相应 </li>
 <li>1.2. 参与者收到请求后，开始执行事务。将事务写入日志，并锁定所占用的资源 </li>
 <li>1.3. 参与者根据执行结果反馈给协调者，成功则返回ack，失败则返回fin。 </li>
 </ul>
 </li>
-<li><p>执行事务提交  </p>
-<ul>
+<li>执行事务提交 <ul>
 <li>2.1 如果协调者收到了所有参与者的ack相应，则决定执行事务  <ul>
 <li>2.1.1 协调者发送commit给所有参与者  </li>
 <li>2.1.2 参与者收到commit后执行事务  </li>
