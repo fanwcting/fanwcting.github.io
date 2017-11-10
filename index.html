@@ -254,6 +254,125 @@
   
   
 
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/tags/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fan_wcting">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wcting">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/10/tags/" itemprop="url">tags</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-10T13:34:00+08:00">
+                2017-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -331,11 +450,11 @@
         
           
             <h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<h6 id="input"><a href="#input" class="headerlink" title="input"></a>input</h6><p>string[] </p>
-<h6 id="output"><a href="#output" class="headerlink" title="output"></a>output</h6><p>string</p>
+<h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><p>string[] </p>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><p>string</p>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>因为是公共子串，显然有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">所有字符串的最长公共前缀是任意两个字符串的最长公共前缀的子串</div></pre></td></tr></table></figure></p>
 <p>因此我们先将第一个字符串设为最长公共前缀S，再将S与下一个字符串进行比较。  </p>
-<h6 id="code"><a href="#code" class="headerlink" title="code"></a>code</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//手动匹配前缀</div><div class="line">public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">        if(strs.length == 0) return &quot;&quot;;</div><div class="line">        String prefix = strs[0];</div><div class="line">        int minlength,j;</div><div class="line">        for(int i = 1 ; i &lt; strs.length ; i++)&#123;</div><div class="line">            String str = strs[i];</div><div class="line">            minlength = prefix.length() &gt; str.length() ? str.length() : prefix.length();</div><div class="line">            for(j = 0 ; j &lt; minlength ; j++)&#123;</div><div class="line">                if(prefix.charAt(j) != str.charAt(j))&#123;</div><div class="line">                    break;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if(j==0) &#123;</div><div class="line">                prefix = &quot;&quot;;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">            prefix = prefix.substring(0,j);</div><div class="line">        &#125;</div><div class="line">        return prefix;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//直接使用java函数</div><div class="line">public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">        if(strs == null || strs.length == 0)   return &quot;&quot;;</div><div class="line">        String prefix = strs[0];</div><div class="line">        if(strs.length == 1)   return prefix;</div><div class="line">        for(int i=1; i&lt;strs.length; i++) &#123;</div><div class="line">            while(strs[i].indexOf(prefix)!=0) &#123;</div><div class="line">                prefix = prefix.substring(0,prefix.length()-1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return prefix;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//手动匹配前缀</div><div class="line">public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">        if(strs.length == 0) return &quot;&quot;;</div><div class="line">        String prefix = strs[0];</div><div class="line">        int minlength,j;</div><div class="line">        for(int i = 1 ; i &lt; strs.length ; i++)&#123;</div><div class="line">            String str = strs[i];</div><div class="line">            minlength = prefix.length() &gt; str.length() ? str.length() : prefix.length();</div><div class="line">            for(j = 0 ; j &lt; minlength ; j++)&#123;</div><div class="line">                if(prefix.charAt(j) != str.charAt(j))&#123;</div><div class="line">                    break;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if(j==0) &#123;</div><div class="line">                prefix = &quot;&quot;;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">            prefix = prefix.substring(0,j);</div><div class="line">        &#125;</div><div class="line">        return prefix;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//直接使用java函数</div><div class="line">public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">        if(strs == null || strs.length == 0)   return &quot;&quot;;</div><div class="line">        String prefix = strs[0];</div><div class="line">        if(strs.length == 1)   return prefix;</div><div class="line">        for(int i=1; i&lt;strs.length; i++) &#123;</div><div class="line">            while(strs[i].indexOf(prefix)!=0) &#123;</div><div class="line">                prefix = prefix.substring(0,prefix.length()-1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return prefix;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -490,125 +609,6 @@
 <li>Twitter的首席工程师Nathan Marz在2011年 <a href="http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html" target="_blank" rel="external">How to beat the CAP theorem</a><br>对传统的CRUD进行了转化，去除了UD，只剩CR。把CR都作为一个Query来处理。这样可以保证在P的情况下保证A。而所有的不一致性都可以通过重复进行Query去除掉。</li>
 </ul>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/new/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="fan_wcting">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wcting">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/24/new/" itemprop="url">new</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T19:49:36+08:00">
-                2017-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -872,6 +872,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/new/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fan_wcting">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wcting">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/new/" itemprop="url">new</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T19:49:36+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/23/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1033,7 +1152,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
